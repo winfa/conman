@@ -1,0 +1,66 @@
+<ul class="list-group children-setting" as-sortable="vm.sortableOptions" data-ng-model="vm.mapping.fields">
+  <li class="list-group-item" data-ng-repeat="item in vm.mapping.fields" as-sortable-item>
+    <div as-sortable-item-handle style="display: flex; align-items: center; justify-content: space-between;">
+
+      <div style="display: flex;align-items: center;">
+        <img src='assets/sort.svg'>
+        <div style="padding: 0 1rem;">{{ item.title }}</div>
+      </div>
+
+      <div class="item-actions">
+        <div class="action-btn edit-action" ng-click="vm.editItem(item)">
+          <span class="glyphicon glyphicon-pencil"></span>
+        </div>
+        <div class="action-btn remove-action" ng-click="vm.removeItem(item)">
+          <span class="glyphicon glyphicon-trash"></span>
+        </div>
+      </div>
+    </div>
+
+  </li>
+</ul>
+
+<style>
+  .children-setting li {
+    position: relative;
+  }
+
+  .children-setting .item-actions {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    top: 0;
+  }
+
+  .children-setting .item-actions .action-btn {
+    height: 100%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+  }
+
+  .children-setting .item-actions .action-btn.edit-action {
+    color: #ef9521;
+  }
+
+  .children-setting .item-actions .action-btn.edit-action:hover {
+    color: white;
+  }
+
+  .children-setting .item-actions .action-btn.edit-action:hover {
+    background-color: #ef9521;
+  }
+
+  .children-setting .item-actions .action-btn.remove-action {
+    color: #d64a50;
+  }
+
+  .children-setting .item-actions .action-btn.remove-action:hover {
+    color: white;
+  }
+
+  .children-setting .item-actions .action-btn.remove-action:hover {
+    background-color: #d64a50;
+  }
+</style>

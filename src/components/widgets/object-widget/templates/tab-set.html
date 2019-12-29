@@ -1,0 +1,12 @@
+<div setting-spirit>
+  <ul class="nav nav-tabs">
+    <li ng-repeat="subMapping in vm.mapping.fields track by $index" ng-class="{ 'active': vm.isActive($index) }">
+
+      <a ui-sref="{ path: subMapping.mappingPath }">{{ subMapping.title }}</a>
+    </li>
+  </ul>
+</div>
+
+<div style="padding-top: 2rem;" setting-spirit mapping-path="vm.activeSubMapping.mappingPath">
+  $subTemplate$
+</div>

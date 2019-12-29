@@ -1,0 +1,20 @@
+<div class="dropdown" style="margin-bottom: 1em;">
+  <button class="btn  btn-sm btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+    Language <span class="caret"></span>
+  </button>
+
+  <ul class="dropdown-menu">
+    <li ng-repeat="item in vm.source track by $index">
+      <a ui-sref="configuration.widget({path: vm.getItemPath($index)})"
+          ng-bind-html="vm.getOverview(item)"></a>
+    </li>
+  </ul>
+</div>
+
+$subTemplate$
+
+<div class="array-widget-footer">
+  <button class="btn btn-primary btn-sm" ng-click="vm.addNewItem()">
+    Create New <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>

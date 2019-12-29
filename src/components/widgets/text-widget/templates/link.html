@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label class="control-label">
+    {{ vm.options.title }}
+    <span ng-show="vm.cgRequired" class="required">*</span>
+    <span ng-if="vm.cgDescription" class="glyphicon glyphicon-question-sign" uib-popover-html="vm.cgDescription"
+      popover-trigger="'mouseenter'">
+    </span>
+  </label>
+
+  <a style="text-decoration: underline" ng-href="{{ 'vm.url' }}" target="{{ 'vm.openNewWindow' }}">
+    {{ 'vm.urlName' }}
+  </a>
+</div>

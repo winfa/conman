@@ -1,0 +1,9 @@
+<ul class="dropdown-menu">
+  <li ng-repeat="subMapping in vm.mapping.fields"
+      ng-class="{ 'active': vm.isActive(subMapping.mappingPath) }">
+
+    <a ui-sref="{path: subMapping.mappingPath}">{{ subMapping.title }}</a>
+  </li>
+</ul>
+
+<div style="padding-top: 2rem;">$subTemplate$</div>

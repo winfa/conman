@@ -1,0 +1,60 @@
+<!-- <path-chains mapping-path="vm.mapping.mappingPath"></path-chains> -->
+
+<div class="form-group">
+
+  <label for="sourcePath">Source Path:</label>
+  <ui-select ng-model="vm.mapping.sourcePath" theme="bootstrap">
+    <ui-select-match placeholder="Select path...">{{ $select.selected.path || 'ROOT' }}</ui-select-match>
+
+    <ui-select-choices
+          repeat="pathSchema.path as pathSchema in vm.directChildSchemas | filter: $select.search">
+      <strong>{{ pathSchema.path || 'ROOT' }}</strong>  :: {{ pathSchema.schema.type }}
+    </ui-select-choices>
+  </ui-select>
+</div>
+
+<div class="form-group">
+  <label for="title">Title:</label>
+  <input ng-model="vm.mapping.title" type="text" class="form-control" id="title">
+</div>
+
+<div class="form-group">
+  <label>Required:</label>
+  <input ng-model="vm.mapping.required" type="checkbox" id="required"></input>
+</div>
+
+<div class="form-group">
+  <label for="viewType">View Type:</label>
+
+  <ui-select ng-model="vm.mapping.viewType" theme="bootstrap">
+    <ui-select-match placeholder="Select Type...">{{$select.selected}}</ui-select-match>
+
+    <ui-select-choices repeat="viewType in vm.availableViewTypes | filter: $select.search">
+      <strong>{{ viewType }}</strong>
+    </ui-select-choices>
+  </ui-select>
+
+<!--
+  <input ng-model="vm.mapping.viewType" type="text" class="form-control" id="viewType"></input> -->
+</div>
+
+<div class="form-group">
+  <label for="description">Description:</label>
+  <textarea ng-model="vm.mapping.description" type="text" class="form-control" id="description"></textarea>
+</div>
+
+<div class="form-group" ng-if="vm.mapping.sourceType === 'array'">
+  <label for="fragment">Fragment:</label>
+  {{ vm.overview }}
+  <div monaco-editor ng-model="vm.mapping.fragments.itemOverview"></div>
+</div>
+
+<div class="form-group" ng-if="vm.mapping.viewType === 'dropdownList'">
+  <label>Expressions:</label>
+  <div monaco-editor ng-model="vm.mapping.expressions.selectOptions"></div>
+</div>
+
+<div ng-if="vm.hasChildren">
+  <label>Children Settings</label>
+  <children-setting mapping-path="vm.mapping.mappingPath"></children-setting>
+</div>

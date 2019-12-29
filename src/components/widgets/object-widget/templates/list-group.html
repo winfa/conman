@@ -1,0 +1,14 @@
+<div style="display: flex">
+  <div style="width: 26%; margin-right: 4%;" setting-spirit mapping-path='vm.mapping.mappingPath' class="list-group">
+    <a ng-repeat="subMapping in vm.mapping.fields track by $index" ui-sref="{path: subMapping.mappingPath}"
+        class="list-group-item" ng-class="{ 'active': vm.isActive($index) }">
+      {{ subMapping.title }}
+    </a>
+  </div>
+
+  <div style="width: 70%" class="panel panel-default" setting-spirit mapping-path="vm.activeSubMapping.mappingPath">
+    <div class="panel-body">
+      $subTemplate$
+    </div>
+  </div>
+</div>

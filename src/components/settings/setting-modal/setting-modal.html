@@ -1,0 +1,14 @@
+<div class="modal-header">
+  <h3 class="modal-title text-primary" id="modal-title">Settings for
+    <span>{{ vm.mapping.title || vm.mapping.mappingPath }}</span>
+  </h3>
+</div>
+
+<div class="modal-body">
+  <widget-settings mapping-path="vm.mappingPath"></widget-settings>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-danger" type="button" ng-click="vm.close()">Close</button>
+  <button class="btn btn-primary" type="button" ng-click="vm.saveMapping()">Save</button>
+</div>

@@ -1,0 +1,21 @@
+<div ng-repeat="item in vm.source track by $index"
+    class="array-widget-item" role="button" ng-click='vm.editItem($index)'>
+
+  <div class="overview">$itemOverview$</div>
+
+  <div class="item-actions">
+    <!-- <div class="edit-item item-action ng-click='vm.editItem($index)'">
+      <span class="glyphicon glyphicon-edit"></span>
+    </div> -->
+    <div class="delete-item item-action" ng-click="vm.removeItem($event, $index)">
+      <span class="glyphicon glyphicon-trash"></span>
+    </div>
+  </div>
+
+</div>
+
+<div class="array-widget-footer">
+  <button class="btn btn-primary btn-sm" ng-click="vm.addNewItem()">
+    Create New <span class="glyphicon glyphicon-plus"></span>
+  </button>
+</div>

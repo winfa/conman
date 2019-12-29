@@ -1,0 +1,28 @@
+<div class="form-group">
+    <label class="control-label">
+      {{ vm.options.title }}
+    </label>
+
+    <div class="btn-group" style="margin-left: 5px; float: right;">
+      <button type="button" class="btn btn-xs" ng-class="{'btn-info': preview != true, 'btn-default': preview == true}" ng-click="preview = false">
+        <span class="glyphicon glyphicon-pencil"></span><span style="margin-left: 2px;">Edit</span>
+      </button>
+      <button type="button" class="btn btn-xs" ng-class="{'btn-info': preview == true, 'btn-default': preview != true}" ng-click="preview = true">
+        <span class="glyphicon glyphicon-eye-open"></span><span style="margin-left: 2px;">View</span>
+      </button>
+    </div>
+
+    <button type="button" style="float: right; margin-right: 10px" class="btn btn-xs" ng-show="vm.cgDescription"  ng-class="{'btn-info': showNote == true, 'btn-default': showNote != true}" ng-click="showNote = !showNote">
+      <span class="glyphicon glyphicon-file"></span><span style="margin-left: 0px;">Show notes</span>
+    </button>
+
+    <div ng-show="showNote && vm.cgDescription" style="background-color: #fff095; color: gray; padding: 10px; border-radius: 4px; margin-bottom: 5px" ng-bind-html="vm.cgDescription"></div>
+
+    <textarea class="form-control" rows="5" ng-model="vm.value" style="max-width: 100%;" ng-show="!preview">
+    </textarea>
+
+    <div class="panel panel-default" ng-show="preview">
+      <div class="panel-body" ng-bind-html="vm.value"></div>
+    </div>
+
+  </div>
